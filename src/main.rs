@@ -8,6 +8,7 @@ mod lotes;
 mod tipolote;
 mod tipo_alimento;
 mod unidad;
+mod imagen;
 
 use alimento::{get_alimento, insert_alimento, update_alimento};
 use alimento_unidad::{get_alimento_unidad, insert_alimento_unidad, update_alimento_unidad};
@@ -18,6 +19,7 @@ use axum::{
   Json, Router,
 };
 use chrono::NaiveDateTime;
+use imagen::{get_imagen, insert_imagen, update_imagen};
 use lotes::{get_lotes, insert_lotes, update_lote};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
@@ -66,6 +68,8 @@ async fn main() {
     .route("/tipolote",get(get_tipo_lote).post(insert_tipo_lote))
     .route("/tipo-alimento", get(get_tipo_alimento).post(insert_tipo_alimento))
     .route("/unidades", get(get_unidades).post(insert_unidad))
+    .route("/imagen", get(get_imagen).post(insert_imagen))
+    .route("/imagen/update", post(update_imagen))
     .with_state(db_pool);
 
   //serve the application
