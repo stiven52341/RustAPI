@@ -1,0 +1,13 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.4"
+tokio = {version = "1.36.0", features = ["full"]}
+sqlx = {version = "0.7.3", features=["postgres","runtime-tokio","tls-native-tls","macros","chrono","json","bigdecimal"]}
+serde = {version = "1.0.196", features=["derive"]}
+serde_json = {version = "1.0.13"}
+dotenvy = { version="0.15.7" }
+chrono = { version = "0.4", features = ["serde"] }
