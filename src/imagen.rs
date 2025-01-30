@@ -51,7 +51,7 @@ pub async fn insert_imagen(
 
     Ok((
         StatusCode::CREATED,
-        json!({"success": true, "data": row}).to_string(),
+        json!({"success": true, "data": 1}).to_string(),
     ))
 }
 
